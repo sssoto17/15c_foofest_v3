@@ -1,26 +1,26 @@
 {
-  "name": "15c_foofest",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@headlessui/react": "^2.2.0",
-    "@tailwindcss/postcss": "^4.0.0-beta.4",
-    "eslint-config-next": "^15.0.4",
-    "next": "^15.0.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0",
-    "swr": "^2.3.0",
-    "zustand": "^5.0.2"
-  },
-  "devDependencies": {
-    "postcss": "^8",
-    "tailwindcss": "^4.0.0-beta.4"
-  }
+	"name": "15c_foofest",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@headlessui/react": "^2.2.0",
+		"@tailwindcss/postcss": "^4.0.0",
+		"eslint-config-next": "^15.0.4",
+		"next": "^15.0.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-icons": "^5.4.0",
+		"swr": "^2.3.0",
+		"zustand": "^5.0.2"
+	},
+	"devDependencies": {
+		"postcss": "^8",
+		"tailwindcss": "^4.0.0"
+	}
 }

@@ -1,31 +1,30 @@
 import Accordion from "@/components/Accordion";
-import ColSchedule from "@/components/lineup/Table";
-import { stageSchedule, Days } from "@/lib/schedule";
+import Table from "@/components/lineup/Table";
+import { getArtists } from "@/lib/api/lineup";
+import { Program } from "@/lib/schedule";
 
 export default async function Stages({ searchParams }) {
-  const { stage } = await searchParams;
-  const stages = await stageSchedule();
+	const { stage } = await searchParams;
 
-  return (
-    <section className="grid gap-4 items-start">
-      {stages.map((obj, i) => {
-        const cols = Days(obj);
-        return (
-          <Accordion
-            key={i}
-            variant="primary"
-            label={obj.name}
-            name="stage"
-            isOpen={stage === obj.name}
-          >
-            <section className="grid grid-cols-[auto_1fr_1fr_1fr] grid-rows-[2fr_12fr]">
-              {cols.map((day, i) => {
-                return <ColSchedule {...day} key={i} />;
-              })}
-            </section>
-          </Accordion>
-        );
-      })}
-    </section>
-  );
+	const { stages, scheduleByStage } = await Program.create();
+	const { items } = await getArtists();
+
+	return (
+		<section className="grid gap-4 items-start">
+			{stages.map((obj, i) => {
+				const cols = scheduleByStage(obj.schedule.slice(-3), items);
+
+				return (
+					<Accordion
+						key={i}
+						variant="primary"
+						{...obj}
+						isOpen={stage === obj.label}
+					>
+						<Table cols={cols} />
+					</Accordion>
+				);
+			})}
+		</section>
+	);
 }

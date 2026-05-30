@@ -15,18 +15,18 @@ const headersList = {
 	Prefer: "return=representation",
 };
 
-// export function getCampingAreas() {
-// 	const { data, error, isLoading } = useSWR(
-// 		`${endpointAPI}/available-spots`,
-// 		fetcher,
-// 	);
+export function getCampingAreas() {
+	const { data, error, isLoading } = useSWR(
+		`${endpointAPI}/available-spots`,
+		fetcher,
+	);
 
-// 	return {
-// 		areas: data,
-// 		isLoading,
-// 		isError: error,
-// 	};
-// }
+	return {
+		areas: data,
+		isLoading,
+		isError: error,
+	};
+}
 
 export async function putReservation(reservationData) {
 	const data = await fetch(`${endpointAPI}/reserve-spot`, {

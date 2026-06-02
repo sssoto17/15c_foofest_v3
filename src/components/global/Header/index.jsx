@@ -20,7 +20,7 @@ export function BookingFlowHeader() {
 	return (
 		<HeaderWrapper>
 			<WarningEscape />
-			<Image src={logo} alt="FooFest" className="h-14 w-fit" />
+			<Image src={logo} alt="FooFest" className="h-14 w-fit" priority />
 		</HeaderWrapper>
 	);
 }

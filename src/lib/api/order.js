@@ -1,6 +1,3 @@
-import useSWR from "swr";
-import { fetcher } from "../utils";
-
 import {
 	endpointAPI,
 	endpointOrders,
@@ -15,18 +12,34 @@ const headersList = {
 	Prefer: "return=representation",
 };
 
-export function getCampingAreas() {
-	const { data, error, isLoading } = useSWR(
-		`${endpointAPI}/available-spots`,
-		fetcher,
+export async function getCampingAreas() {
+	return await fetch(`${endpointAPI}/available-spots`).then((res) =>
+		res.json(),
 	);
 
-	return {
-		areas: data,
-		isLoading,
-		isError: error,
-	};
+	console.log(data);
+
+	// return data;
 }
+
+// import useSWR from "swr";
+// import { fetcher } from "../utils";
+// import { endpointAPI } from "./endpoints";
+
+// export function getCampingAreas() {
+// 	const { data, isLoading, error } = useSWR(
+// 		`${endpointAPI}/available-spots`,
+// 		fetcher,
+// 	);
+
+// 	console.log(`${endpointAPI}/available-spots`);
+
+// 	return {
+// 		areas: data,
+// 		isLoading,
+// 		isError: error,
+// 	};
+// }
 
 export async function putReservation(reservationData) {
 	const data = await fetch(`${endpointAPI}/reserve-spot`, {

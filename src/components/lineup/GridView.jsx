@@ -2,7 +2,7 @@ import { LoadMore } from "./Buttons";
 
 export default function GridView({ children, limit, totalLimit, genre }) {
 	return (
-		<ul className="sm:col-span-2 lg:col-span-3 grid grid-cols-[repeat(auto-fit,_minmax(216px,_1fr))] gap-4 content-start">
+		<ul className="sm:col-span-2 lg:col-span-3 grid grid-cols-[repeat(auto-fit,minmax(216px,1fr))] gap-4 content-start">
 			{children}
 		</ul>
 	);
